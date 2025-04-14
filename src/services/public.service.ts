@@ -17,3 +17,7 @@ export const getCreditAgreements = (totalWithTax: number) => {
     controller,
   };
 };
+
+export const postEvent = (data: object) => {
+  return axios.post(import.meta.env.VITE_SEQURA_HOST_API + "/events", data);
+};
