@@ -1,10 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.tsx";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+const renderWidget = (containerId: string, number: number) => {
+  const container = document.getElementById(containerId);
+  if (container) {
+    const root = ReactDOM.createRoot(container);
+    root.render(<App totalWithTax={number} />);
+  } else {
+    console.error(`No se encontró el contenedor con id: ${containerId}`);
+  }
+};
+
+// Exportar la función para que pueda ser utilizada en el código de inserción
+export { renderWidget };
