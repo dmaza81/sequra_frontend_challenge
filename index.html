@@ -7,7 +7,13 @@
     <title>Vite + React + TS</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="my-widget-container"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        window.renderMyWidget("my-widget-container", 15000);
+      });
+    </script>
   </body>
 </html>

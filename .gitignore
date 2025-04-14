@@ -294,5 +294,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.vite/deps
+
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,windows,macos,linux,test
 
