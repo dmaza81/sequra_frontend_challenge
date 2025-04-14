@@ -7,6 +7,7 @@ import {
 } from "./adapters";
 import { CreditAgreement } from "./models";
 import Selector from "./components/Selector";
+import Dropdown from "./components/DropDown";
 
 interface AppProps {
   totalWithTax?: number;
@@ -43,7 +44,14 @@ const App: React.FC<AppProps> = ({ totalWithTax = 0 }) => {
           <h3>LOADING</h3>
         </div>
       ) : (
-        <Selector options={creditAgreements} />
+        <div className="flex flex-col p-6 border border-gray-400 rounded-l m-2 gap-y-2 ">
+          <div className="flex flex-row justify-between">
+            <span className="font-semibold ">Pagalo en</span>
+            <span className="font-medium">Mas info </span>
+          </div>
+          <Dropdown />
+          <Selector options={creditAgreements} />
+        </div>
       )}
     </>
   );

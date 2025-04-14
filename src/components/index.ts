@@ -1,1 +1,2 @@
-export { default as Selectector } from "./Selectector";
+export { default as Selector } from "./Selector";
+export { default as DropDown } from "./DropDown";
