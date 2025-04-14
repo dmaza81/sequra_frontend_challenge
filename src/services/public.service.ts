@@ -6,7 +6,7 @@ export const getCreditAgreements = (totalWithTax: number) => {
   const controller = loadAbort();
   return {
     call: axios.get<CreditAgreement[]>(
-      "http://localhost:8080/credit_agreements",
+      import.meta.env.VITE_SEQURA_HOST_API + "/credit_agreements",
       {
         signal: controller.signal,
         params: {
