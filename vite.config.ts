@@ -15,7 +15,6 @@ export default defineConfig({
       fileName: (format) => `sequra-widget.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",
