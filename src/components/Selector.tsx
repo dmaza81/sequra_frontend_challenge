@@ -11,11 +11,13 @@ const Selector: React.FC<SelectProps> = ({ options }) => {
     event.preventDefault();
 
     const selectedValue = event.target.value;
-    postEvent({
-      context: "checkoutWidget",
-      type: "simulatorInstalmentChanged",
-      selectedInstalment: selectedValue,
-    });
+    if (selectedValue !== "") {
+      postEvent({
+        context: "checkoutWidget",
+        type: "simulatorInstalmentChanged",
+        selectedInstalment: selectedValue,
+      });
+    }
   };
 
   return (
