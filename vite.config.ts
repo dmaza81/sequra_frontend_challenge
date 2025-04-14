@@ -1,7 +1,27 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  base: "/sequra_frontend_challenge/",
+  define: {
+    "process.env": {},
+  },
+  build: {
+    lib: {
+      entry: "src/main.tsx",
+      name: "SeQura Widget",
+      formats: ["umd"],
+      fileName: (format) => `sequra-widget.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
+  },
+});
