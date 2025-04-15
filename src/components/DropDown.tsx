@@ -35,7 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
     <div className="relative inline-block text-left">
       <button
         onClick={toggleDropdown}
-        className={`justify-between w-full inline-flex items-center gap-1 px-4 py-2 bg-white border-gray-300 ${isOpen ? "rounded-t-md border-t-1 border-x-1" : "rounded-md border"}  hover:bg-gray-50 transition-all`}
+        className={`cursor-pointer justify-between w-full inline-flex items-center gap-1 px-4 py-2 bg-white border-gray-300 ${isOpen ? "rounded-t-md border-t-1 border-x-1" : "rounded-md border"}  hover:bg-gray-50 transition-all`}
       >
         {options[selected].instalmentCount} cuotas de{" "}
         {options[selected].instalmentTotal}/mes
