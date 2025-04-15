@@ -6,6 +6,17 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
+    coverage: {
+      reporter: ["text", "json", "html"],
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      exclude: [
+        "src/main.tsx",
+        "src/__mocks__",
+        "**.config.*",
+        "src/models",
+        "**.d.*",
+      ],
+    },
   },
   resolve: {
     alias: {

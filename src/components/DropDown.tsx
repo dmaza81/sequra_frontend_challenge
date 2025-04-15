@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreateAgreementAdapterProps } from "@/adapters";
 import { postEvent } from "@/services/public.service";
+import { creditAgreementSelected } from "@/signals";
+import Chevron from "./Chevron";
 
 interface DropdownProps {
   options: CreateAgreementAdapterProps[];
@@ -14,6 +15,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
 
   useEffect(() => {
     if (options.length > 0) {
+      creditAgreementSelected.value = options[0];
       setSelected(0);
     }
   }, [options]);
@@ -27,6 +29,8 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       selectedInstalment: options[option].instalmentCount,
     });
 
+    creditAgreementSelected.value = options[option];
+
     setSelected(option);
     setIsOpen(false);
   };
@@ -35,15 +39,11 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
     <div className="relative inline-block text-left">
       <button
         onClick={toggleDropdown}
-        className={`justify-between w-full inline-flex items-center gap-1 px-4 py-2 bg-white border-gray-300 ${isOpen ? "rounded-t-md border-t-1 border-x-1" : "rounded-md border"}  hover:bg-gray-50 transition-all`}
+        className={`cursor-pointer justify-between w-full inline-flex items-center gap-1 px-4 py-2 bg-white border-gray-300 ${isOpen ? "rounded-t-md border-t-1 border-x-1" : "rounded-md border"}  hover:bg-gray-50 transition-all`}
       >
         {options[selected].instalmentCount} cuotas de{" "}
         {options[selected].instalmentTotal}/mes
-        {isOpen ? (
-          <ChevronUp className="w-4 h-4 transition-transform duration-300" />
-        ) : (
-          <ChevronDown className="w-4 h-4 transition-transform duration-300" />
-        )}
+        <Chevron open={isOpen} />
       </button>
 
       <AnimatePresence>
