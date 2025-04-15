@@ -1,13 +1,19 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface ChevronProps {
-  isOpen: boolean;
+  open: boolean;
 }
-const Chevron: React.FC<ChevronProps> = ({ isOpen = false }) => {
-  return isOpen ? (
-    <ChevronUp className="w-4 h-4 transition-transform duration-300" />
+const Chevron: React.FC<ChevronProps> = ({ open = false }) => {
+  return open ? (
+    <ChevronUp
+      aria-label="Cerrar opciones de pago"
+      className="w-4 h-4 transition-transform duration-300"
+    />
   ) : (
-    <ChevronDown className="w-4 h-4 transition-transform duration-300" />
+    <ChevronDown
+      aria-label="Abrir opciones de pago"
+      className="w-4 h-4 transition-transform duration-300"
+    />
   );
 };
 

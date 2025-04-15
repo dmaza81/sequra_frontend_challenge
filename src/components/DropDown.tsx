@@ -43,7 +43,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       >
         {options[selected].instalmentCount} cuotas de{" "}
         {options[selected].instalmentTotal}/mes
-        <Chevron isOpen />
+        <Chevron open={isOpen} />
       </button>
 
       <AnimatePresence>

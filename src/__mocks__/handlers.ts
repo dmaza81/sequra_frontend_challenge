@@ -1,6 +1,9 @@
 import { http, HttpResponse } from "msw";
 
 export const handlers = [
+  http.post(import.meta.env.VITE_SEQURA_HOST_API + "/events", () => {
+    return HttpResponse.json({ status: 200 });
+  }),
   http.get(
     import.meta.env.VITE_SEQURA_HOST_API + "/credit_agreements",
     ({ request }) => {
