@@ -6,7 +6,6 @@ import {
   createCreditAgreementAdapter,
 } from "./adapters";
 import { CreditAgreement } from "./models";
-import Selector from "./components/Selector";
 import Dropdown from "./components/DropDown";
 
 interface AppProps {
@@ -37,23 +36,22 @@ const App: React.FC<AppProps> = ({ totalWithTax = 0 }) => {
     // eslint-disable-next-line
   }, [totalWithTax]);
 
+  if (loading)
+    return (
+      <div>
+        <h3>LOADING</h3>
+      </div>
+    );
+
+  if (creditAgreements?.length === 0) return null;
+
   return (
-    <>
-      {loading ? (
-        <div>
-          <h3>LOADING</h3>
-        </div>
-      ) : (
-        <div className="flex flex-col p-6 border border-gray-400 rounded-l m-2 gap-y-2 ">
-          <div className="flex flex-row justify-between">
-            <span className="font-semibold ">Pagalo en</span>
-            <span className="font-medium">Mas info </span>
-          </div>
-          <Dropdown />
-          <Selector options={creditAgreements} />
-        </div>
-      )}
-    </>
+    <div className="flex flex-col p-6 border border-gray-400 rounded-l m-2 gap-y-2 ">
+      <div className="flex flex-row justify-between">
+        <span className="font-semibold ">Pagalo en</span>
+      </div>
+      <Dropdown options={creditAgreements} />
+    </div>
   );
 };
 

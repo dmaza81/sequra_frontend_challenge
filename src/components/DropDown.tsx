@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { CreateAgreementAdapterProps } from "@/adapters";
+import { postEvent } from "@/services/public.service";
 
-const Dropdown = () => {
-  const options = ["Perfil", "Configuración", "Cerrar sesión"];
+interface DropdownProps {
+  options: CreateAgreementAdapterProps[];
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("Opciones");
+  const [selected, setSelected] = useState<number>(0);
+
+  useEffect(() => {
+    if (options.length > 0) {
+      setSelected(0);
+    }
+  }, [options]);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleSelect = (option: string) => {
+  const handleSelect = (option: number) => {
+    postEvent({
+      context: "checkoutWidget",
+      type: "simulatorInstalmentChanged",
+      selectedInstalment: options[option].instalmentCount,
+    });
+
     setSelected(option);
     setIsOpen(false);
   };
@@ -18,9 +35,10 @@ const Dropdown = () => {
     <div className="relative inline-block text-left">
       <button
         onClick={toggleDropdown}
-        className={`justify-between w-full inline-flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 ${isOpen ? "rounded-t-md" : "rounded-md"}  hover:bg-gray-50 transition-all`}
+        className={`justify-between w-full inline-flex items-center gap-1 px-4 py-2 bg-white border-gray-300 ${isOpen ? "rounded-t-md border-t-1 border-x-1" : "rounded-md border"}  hover:bg-gray-50 transition-all`}
       >
-        {selected}
+        {options[selected].instalmentCount} cuotas de{" "}
+        {options[selected].instalmentTotal}/mes
         {isOpen ? (
           <ChevronUp className="w-4 h-4 transition-transform duration-300" />
         ) : (
@@ -37,15 +55,20 @@ const Dropdown = () => {
             className="absolute left-0 w-full bg-white rounded-b-lg  border border-gray-200 z-10"
           >
             <ul className="py-2">
-              {options.map((option) => (
-                <li
-                  key={option}
-                  onClick={() => handleSelect(option)}
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                >
-                  {option}
-                </li>
-              ))}
+              {options?.map(
+                (option, i) =>
+                  i != selected && (
+                    <li
+                      key={i}
+                      onClick={() => handleSelect(i)}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      {option.instalmentCount} cuotas de{" "}
+                      {option.instalmentTotal}
+                      /mes
+                    </li>
+                  )
+              )}
             </ul>
           </motion.div>
         )}
