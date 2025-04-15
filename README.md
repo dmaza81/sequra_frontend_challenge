@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# SeQura Frontend Challenge
+From this document we will explain how we have structured the challenge and how we can test it on any third-party page to integrate said Widget.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Architecture and technology used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For this challenge we have based ourselves on a Clean architecture and the use of Vite with React
 
-## Expanding the ESLint configuration
+### Clean Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Domain/Models/State**: Defines entities and their state during the application lifecycle
+- **Use Cases**: Operations that can be performed on the models.
+- **Adapters**: Facilitate the conversion of external data so that it can be handled by the application
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+#### Benefits
+
+- Clear code organization.
+- Ease of maintenance.
+- Project scalability.
+
+## Suggested Folder Structure
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+src/
+├── adapters/
+│   ├── index.ts
+│   └── credit-agreements.adapter.ts
+├── components/
+│   ├── Cher.jsx
+│   └── AdminComponent.jsx
+├── models/
+│   └── userModel.js
+├── hooks/
+│   ├── useUser.js
+│   └── useAdmin.js
+├── services/
+│   └── userService.js
+├── utilities/
+│   └── formatter.js
+├── interceptors/
+│   └── authInterceptor.js
+├── contexts/
+│   └── UserContext.js
 ```
