@@ -1,6 +1,6 @@
 import { AxiosCall } from "@/models";
 import { AxiosResponse } from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useFetchAndLoad = () => {
   const [loading, setLoading] = useState(false);
@@ -25,8 +25,17 @@ const useFetchAndLoad = () => {
 
   const cancelEndpoint = () => {
     setLoading(false);
-    controller?.abort();
+    if (controller) {
+      controller.abort();
+    }
   };
+
+  useEffect(() => {
+    return () => {
+      cancelEndpoint();
+    };
+    // eslint-disable-next-line
+  }, []);
 
   return { loading, callEndpoint, cancelEndpoint };
 };
