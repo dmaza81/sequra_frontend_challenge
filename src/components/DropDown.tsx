@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreateAgreementAdapterProps } from "@/adapters";
 import { postEvent } from "@/services/public.service";
+import { creditAgreementSelected } from "@/signals";
+import Chevron from "./Chevron";
 
 interface DropdownProps {
   options: CreateAgreementAdapterProps[];
@@ -14,6 +15,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
 
   useEffect(() => {
     if (options.length > 0) {
+      creditAgreementSelected.value = options[0];
       setSelected(0);
     }
   }, [options]);
@@ -27,6 +29,8 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       selectedInstalment: options[option].instalmentCount,
     });
 
+    creditAgreementSelected.value = options[option];
+
     setSelected(option);
     setIsOpen(false);
   };
@@ -39,11 +43,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
       >
         {options[selected].instalmentCount} cuotas de{" "}
         {options[selected].instalmentTotal}/mes
-        {isOpen ? (
-          <ChevronUp className="w-4 h-4 transition-transform duration-300" />
-        ) : (
-          <ChevronDown className="w-4 h-4 transition-transform duration-300" />
-        )}
+        <Chevron isOpen />
       </button>
 
       <AnimatePresence>

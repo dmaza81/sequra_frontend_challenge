@@ -1,4 +1,5 @@
 import React from "react";
+import { creditAgreementSelected } from "@/signals";
 
 interface PopupProps {
   onClose: () => void;
@@ -19,6 +20,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       imageUrl: "https://placehold.co/600x400",
     },
   ];
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div
@@ -48,8 +50,9 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
           ))}
         </div>
         <p className="text-center text-sm">
-          Ademas en el importe mostrado ya se incluye la cuota unica mensual de
-          3,00Euros/mes, por lo que no tendras ninguna sorpresa
+          Ademas en el importe mostrado ya se incluye la cuota unica mensual de{" "}
+          {creditAgreementSelected.value?.instalmentFee}/mes, por lo que no
+          tendras ninguna sorpresa
         </p>
       </div>
     </div>
