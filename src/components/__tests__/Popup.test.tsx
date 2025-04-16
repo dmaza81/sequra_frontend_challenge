@@ -6,8 +6,10 @@ import { describe, it, expect } from "vitest";
 describe("Popup Component", () => {
   it("should render the base component", async () => {
     const user = userEvent.setup();
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
 
-    render(<App />);
+    render(<App priceElement={htmlElement} />);
 
     const moreInfo = await screen.findByText("Más info");
     await user.click(moreInfo);
@@ -18,8 +20,10 @@ describe("Popup Component", () => {
 
   it("should close the popup when click outside of it", async () => {
     const user = userEvent.setup();
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
 
-    render(<App />);
+    render(<App priceElement={htmlElement} />);
 
     const moreInfo = await screen.findByText("Más info");
     await user.click(moreInfo);

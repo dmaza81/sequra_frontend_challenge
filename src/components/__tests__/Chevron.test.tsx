@@ -5,7 +5,10 @@ import { describe, it, expect } from "vitest";
 
 describe("Chevron Component", () => {
   it("should show open chevron", async () => {
-    render(<App />);
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
+
+    render(<App priceElement={htmlElement} />);
 
     const openChevron = await screen.findByLabelText("Abrir opciones de pago");
 
@@ -14,8 +17,10 @@ describe("Chevron Component", () => {
 
   it("should show close chevron", async () => {
     const user = userEvent.setup();
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
 
-    render(<App />);
+    render(<App priceElement={htmlElement} />);
 
     const openChevron = await screen.findByLabelText("Abrir opciones de pago");
     await user.click(openChevron);
