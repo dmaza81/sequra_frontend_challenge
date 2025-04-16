@@ -96,7 +96,7 @@ To Run Dev:
 
 To Visit App:
 
-`[localhost:3000/ideas](http://localhost:5173/sequra_frontend_challenge/)`  
+[localhost:3000/ideas](http://localhost:5173/sequra_frontend_challenge/)
 
 To Build for production:
 
