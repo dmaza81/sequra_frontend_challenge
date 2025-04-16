@@ -13,16 +13,16 @@ From this document we will explain how we have structured the challenge and how 
 - **[Axios](https://axios-http.com/docs/intro)**: Promise based HTTP client for the browser and node.js.
 
 ### Test
-- **[Vitest](https://vitest.dev/)**: A Vite-native testing framework
-- **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)**: Builds on top of DOM Testing Library by adding APIs for working with React components
-- **[MSW](https://mswjs.io/)**: An API mocking library that allows you to write client-agnostic mocks and reuse them across any frameworks, tools, and environments
+- **[Vitest](https://vitest.dev/)**: A Vite-native testing framework.
+- **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)**: Builds on top of DOM Testing Library by adding APIs for working with React components.
+- **[MSW](https://mswjs.io/)**: An API mocking library that allows you to write client-agnostic mocks and reuse them across any frameworks, tools, and environments.
 
 
 ### Clean Architecture
 
-- **Domain/Models/State**: Defines entities and their state during the application lifecycle
+- **Domain/Models/State**: Defines entities and their state during the application lifecycle.
 - **Use Cases**: Operations that can be performed on the models.
-- **Adapters**: Facilitate the conversion of external data so that it can be handled by the application
+- **Adapters**: Facilitate the conversion of external data so that it can be handled by the application.
 
 #### Benefits
 
