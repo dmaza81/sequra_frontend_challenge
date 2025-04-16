@@ -1,6 +1,8 @@
 # SeQura Frontend Challenge
 From this document we will explain how we have structured the challenge and how we can test it on any third-party page to integrate the Widget.
 
+<br>
+<br>
 
 ## Architecture and technology used
 
