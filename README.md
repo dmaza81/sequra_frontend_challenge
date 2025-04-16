@@ -1,5 +1,5 @@
 # SeQura Frontend Challenge
-From this document we will explain how we have structured the challenge and how we can test it on any third-party page to integrate said Widget.
+From this document we will explain how we have structured the challenge and how we can test it on any third-party page to integrate the Widget.
 
 
 ## Architecture and technology used
@@ -9,6 +9,8 @@ From this document we will explain how we have structured the challenge and how 
 - **[Vite](https://vite.dev/)**: Frontend build tool.
 - **[React](https://es.react.dev/)**: Library for web and native user interfaces.
 - **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed programming language.
+- **[Signals](https://github.com/preactjs/signals)**: Signals is a performant state management library.
+- **[Axios](https://axios-http.com/docs/intro)**: Promise based HTTP client for the browser and node.js.
 
 ### Test
 - **[Vitest](https://vitest.dev/)**: A Vite-native testing framework
@@ -79,7 +81,9 @@ Installation:
 
 To Run Test Suite:  
 
-`npm test`  
+`npm run test`  
+
+To Run test's Coverage:  
 
 To Run Dev:
 
@@ -114,4 +118,15 @@ Note that the function we're calling to include our widget `renderMyWidget` requ
 - The ID of the HTML component that contains our product's price in text, in this example will be `product-price`
 
 Please take a look at the [example-site](https://github.com/dmaza81/sequra_frontend_challenge/tree/main/example-site) folder in case you have any questions.
+
+## What we should improve
+
+- The deployment system is done manually. A proper CI/CD system hasn't been set up.
+- We're using [Signals](https://github.com/preactjs/signals) state as the source of truth, but we haven't set what we receive from the API and transform into this state with the Adapter. It might be a good idea to review and improve this aspect.
+- Although the application has good test coverage, I would like to do some E2E with [Playhttps](https://playwright.dev/)
+  
+  <img width="1076" alt="Captura de pantalla 2025-04-15 a las 17 06 11" src="https://github.com/user-attachments/assets/b5816358-9a1e-47cf-b18a-c46a46bc67de" />
+
+  
+
 
