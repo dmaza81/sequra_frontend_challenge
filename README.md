@@ -29,8 +29,10 @@ From this document we will explain how we have structured the challenge and how 
 - Clear code organization.
 - Ease of maintenance.
 - Project scalability.
+  
 <br>
 <br>
+
 ## Suggested Folder Structure
 
 ```
