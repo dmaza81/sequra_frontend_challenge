@@ -2,7 +2,6 @@
 From this document we will explain how we have structured the challenge and how we can test it on any third-party page to integrate the Widget.
 
 <br>
-<br>
 
 ## Architecture and technology used
 
@@ -32,7 +31,6 @@ From this document we will explain how we have structured the challenge and how 
 - Ease of maintenance.
 - Project scalability.
   
-<br>
 <br>
 
 ## Suggested Folder Structure
@@ -75,7 +73,7 @@ src/
 │   ├── index.ts
 │   └── loadAbortAxios.utility.ts
 ```
-<br>
+
 <br>
 
 ## Installation and Setup Instructions To Develop
@@ -107,8 +105,9 @@ To Build for production:
 To Deploy: We are using Github Pages as a CDN
 
 `npm run deploy`  
+
 <br>
-<br>
+
 
 ## How to use the Widget in your page
 
@@ -128,7 +127,6 @@ Note that the function we're calling to include our widget `renderMyWidget` requ
 
 Please take a look at the [example-site](https://github.com/dmaza81/sequra_frontend_challenge/tree/main/example-site) folder in case you have any questions.
 
-<br>
 <br>
 
 ## What we should improve
