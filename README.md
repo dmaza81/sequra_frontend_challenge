@@ -29,7 +29,8 @@ From this document we will explain how we have structured the challenge and how 
 - Clear code organization.
 - Ease of maintenance.
 - Project scalability.
-
+<br>
+<br>
 ## Suggested Folder Structure
 
 ```
@@ -70,7 +71,8 @@ src/
 │   ├── index.ts
 │   └── loadAbortAxios.utility.ts
 ```
-
+<br>
+<br>
 
 ## Installation and Setup Instructions To Develop
 
@@ -101,8 +103,8 @@ To Build for production:
 To Deploy: We are using Github Pages as a CDN
 
 `npm run deploy`  
-
-
+<br>
+<br>
 
 ## How to use the Widget in your page
 
