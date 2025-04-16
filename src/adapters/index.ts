@@ -1,1 +1,1 @@
-export * from "./credit-agreements.adapter";
+export * from "./creditAgreements.adapter";
