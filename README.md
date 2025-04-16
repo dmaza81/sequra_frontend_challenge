@@ -71,6 +71,7 @@ src/
 │   └── loadAbortAxios.utility.ts
 ```
 
+
 ## Installation and Setup Instructions To Develop
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
@@ -100,6 +101,8 @@ To Build for production:
 To Deploy: We are using Github Pages as a CDN
 
 `npm run deploy`  
+
+
 
 ## How to use the Widget in your page
 
