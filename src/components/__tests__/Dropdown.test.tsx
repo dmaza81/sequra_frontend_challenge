@@ -5,7 +5,10 @@ import { describe, it, expect } from "vitest";
 
 describe("Dropdown Component", () => {
   it("should render the base component", async () => {
-    render(<App />);
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
+
+    render(<App priceElement={htmlElement} />);
 
     const element = await screen.findByText("3 cuotas de 5 €/mes");
 
@@ -14,8 +17,10 @@ describe("Dropdown Component", () => {
 
   it("should show Dropdown options when click on the trigger button", async () => {
     const user = userEvent.setup();
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
 
-    render(<App />);
+    render(<App priceElement={htmlElement} />);
 
     const element = await screen.findByText("3 cuotas de 5 €/mes");
     await user.click(element);
@@ -26,8 +31,10 @@ describe("Dropdown Component", () => {
 
   it("should change the visible option when selected one of them", async () => {
     const user = userEvent.setup();
+    const htmlElement = document.createElement("p");
+    htmlElement.innerText = "0 €";
 
-    render(<App />);
+    render(<App priceElement={htmlElement} />);
 
     const element = await screen.findByText("3 cuotas de 5 €/mes");
     await user.click(element);

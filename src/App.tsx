@@ -11,7 +11,7 @@ import { Header } from "./components";
 import useMutationObserver from "./hooks/useMutationObserver";
 
 interface AppProps {
-  priceElement?: HTMLElement | null;
+  priceElement: HTMLElement | null;
 }
 
 const App: React.FC<AppProps> = ({ priceElement }) => {
@@ -32,6 +32,11 @@ const App: React.FC<AppProps> = ({ priceElement }) => {
       }
     }
   };
+
+  useEffect(() => {
+    if (priceElement) setTotalWithTax(becomeCurrencyValueToInteger());
+    // eslint-disable-next-line
+  }, [priceElement]);
 
   useMutationObserver(priceElement, callback);
 
@@ -61,6 +66,7 @@ const App: React.FC<AppProps> = ({ priceElement }) => {
     );
 
   if (creditAgreements?.length === 0) return null;
+  if (!priceElement) return null;
 
   return (
     <div className="flex flex-col p-6 border border-gray-400 rounded-l gap-y-2 ">
