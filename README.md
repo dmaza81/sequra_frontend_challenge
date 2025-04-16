@@ -68,3 +68,31 @@ src/
 │   ├── index.ts
 │   └── loadAbortAxios.utility.ts
 ```
+
+## Installation and Setup Instructions
+
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+
+Installation:
+
+`npm install`  
+
+To Run Test Suite:  
+
+`npm test`  
+
+To Run Dev:
+
+`npm run dev`  
+
+To Visit App:
+
+`[localhost:3000/ideas](http://localhost:5173/sequra_frontend_challenge/)`  
+
+To Build for production:
+
+`npm run build`  
+
+To Deploy: We are using Github Pages as a CDN
+
+`npm run deploy`  
