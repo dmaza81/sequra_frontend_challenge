@@ -99,7 +99,7 @@ To Deploy: We are using Github Pages as a CDN
 
 ## How to use the Widget in your page
 
-All you need to do is add this code inside the <head> tags of your website, just before closing the tag.
+All you need to do is add this code inside the `<head>` tags of your website, just before closing the tag.
 ```
 <script src="https://dmaza81.github.io/sequra_frontend_challenge/sequra-widget.umd.js"></script>
 <script>
