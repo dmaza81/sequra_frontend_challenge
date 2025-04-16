@@ -8,16 +8,32 @@ import {
 import { CreditAgreement } from "./models";
 import Dropdown from "./components/DropDown";
 import { Header } from "./components";
+import useMutationObserver from "./hooks/useMutationObserver";
 
 interface AppProps {
-  totalWithTax?: number;
+  priceElement?: HTMLElement | null;
 }
 
-const App: React.FC<AppProps> = ({ totalWithTax = 0 }) => {
+const App: React.FC<AppProps> = ({ priceElement }) => {
+  const [totalWithTax, setTotalWithTax] = useState<number>(0);
   const { loading, callEndpoint } = useFetchAndLoad();
   const [creditAgreements, setCreditAgreements] = useState<
     CreateAgreementAdapterProps[]
   >([]);
+
+  const becomeCurrencyValueToInteger = (): number => {
+    return Number(priceElement?.innerText.replace(/[^0-9.]/g, ""));
+  };
+
+  const callback = (mutationList: MutationRecord[]) => {
+    for (const mutation of mutationList) {
+      if (mutation.type === "childList") {
+        setTotalWithTax(becomeCurrencyValueToInteger());
+      }
+    }
+  };
+
+  useMutationObserver(priceElement, callback);
 
   useEffect(() => {
     (async () => {
