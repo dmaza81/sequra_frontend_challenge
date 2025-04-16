@@ -4,7 +4,17 @@ From this document we will explain how we have structured the challenge and how 
 
 ## Architecture and technology used
 
-For this challenge we have based ourselves on a Clean architecture and the use of Vite with React
+### Tech Stack
+
+- **[Vite](https://vite.dev/)**: Frontend build tool.
+- **[React](https://es.react.dev/)**: Library for web and native user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed programming language.
+
+### Test
+- **[Vitest](https://vitest.dev/)**: A Vite-native testing framework
+- **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)**: Builds on top of DOM Testing Library by adding APIs for working with React components
+- **[MSW](https://mswjs.io/)**: An API mocking library that allows you to write client-agnostic mocks and reuse them across any frameworks, tools, and environments
+
 
 ### Clean Architecture
 
