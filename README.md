@@ -69,7 +69,7 @@ src/
 │   └── loadAbortAxios.utility.ts
 ```
 
-## Installation and Setup Instructions
+## Installation and Setup Instructions To Develop
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
@@ -96,3 +96,22 @@ To Build for production:
 To Deploy: We are using Github Pages as a CDN
 
 `npm run deploy`  
+
+## How to use the Widget in your page
+
+All you need to do is add this code inside the <head> tags of your website, just before closing the tag.
+```
+<script src="https://dmaza81.github.io/sequra_frontend_challenge/sequra-widget.umd.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    window.renderMyWidget("my-widget-container", "product-price");
+  });
+</script>
+```
+Note that the function we're calling to include our widget `renderMyWidget` requires two parameters:
+
+- The ID of the HTML component where we'll display the widget, in this example will be `my-widget-container`
+- The ID of the HTML component that contains our product's price in text, in this example will be `product-price`
+
+Please take a look at the [example-site](https://github.com/dmaza81/sequra_frontend_challenge/tree/main/example-site) folder in case you have any questions.
+
