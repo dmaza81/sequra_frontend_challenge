@@ -1,1 +1,1 @@
-export * from "./CreaditAgreement.signal";
+export * from "./creaditAgreement.signal";

@@ -1,2 +1,2 @@
-export * from "./credit-agreements.model";
-export * from "./axios-call.model";
+export * from "./creditAgreements.model";
+export * from "./axiosCall.model";
