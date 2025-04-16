@@ -135,7 +135,8 @@ Please take a look at the [example-site](https://github.com/dmaza81/sequra_front
 - We're using [Signals](https://github.com/preactjs/signals) state as the source of truth, but we haven't set what we receive from the API and transform into this state with the Adapter. It might be a good idea to review and improve this aspect.
 - Although the application has good test coverage, I would like to do some E2E with [Playwright](https://playwright.dev/)
   
-  <img width="1076" alt="Captura de pantalla 2025-04-15 a las 17 06 11" src="https://github.com/user-attachments/assets/b5816358-9a1e-47cf-b18a-c46a46bc67de" />
+  ![Captura de pantalla 2025-04-16 a las 13 43 12](https://github.com/user-attachments/assets/f1521ace-0269-427d-8f22-7a00024f6aca)
+
 
   
 
