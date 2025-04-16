@@ -47,17 +47,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        let totalWithTax = document
-          .getElementById("product-price")
-          .innerText.split(" ")[0]
-          .replace(",", "");
-        const targetNode = document.getElementById("product-price");
-
-        window.renderMyWidget(
-          "my-widget-container",
-          "product-price",
-          totalWithTax
-        );
+        window.renderMyWidget("my-widget-container", "product-price");
       });
     </script>
   </body>
