@@ -22,23 +22,39 @@ For this challenge we have based ourselves on a Clean architecture and the use o
 
 ```
 src/
+├── __mocks__
+│  ├── handlers.ts
+│  └── node.ts
+├── __tests__
+│  └── App.test.tsx
 ├── adapters/
 │   ├── index.ts
-│   └── credit-agreements.adapter.ts
+│   └── creditAgreements.adapter.ts
 ├── components/
-│   ├── Cher.jsx
-│   └── AdminComponent.jsx
-├── models/
-│   └── userModel.js
+│   ├──__tests__
+│   │  ├── Chevron.test.tsx
+│   │  ├── Dropdown.test.tsx
+│   │  ├── Header.test.tsx
+│   │  └── Popup.test.tsx
+│   ├── Chevron.tsx
+│   ├── Dropdown.tsx
+│   ├── Header.tsx
+│   ├── Popup.tsx
+│   └── index.ts
 ├── hooks/
-│   ├── useUser.js
-│   └── useAdmin.js
+│   ├── index.ts
+│   ├── useFetchAndLoad.ts
+│   └── useMutationObserver.ts
+├── models/
+│   ├── index.ts
+│   ├── axiosCall.model.ts
+│   └── creditAgreements.model.ts
 ├── services/
-│   └── userService.js
-├── utilities/
-│   └── formatter.js
-├── interceptors/
-│   └── authInterceptor.js
-├── contexts/
-│   └── UserContext.js
+│   └── public.service.ts
+├── signals/
+│   ├── index.ts
+│   └── creditAgreement.signal.ts
+├── utils/
+│   ├── index.ts
+│   └── loadAbortAxios.utility.ts
 ```
