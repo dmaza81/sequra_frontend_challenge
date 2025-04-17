@@ -12,6 +12,7 @@ From this document we will explain how we have structured the challenge and how 
 - **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed programming language.
 - **[Signals](https://github.com/preactjs/signals)**: Signals is a performant state management library.
 - **[Axios](https://axios-http.com/docs/intro)**: Promise based HTTP client for the browser and node.js.
+- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework packed with classes.
 
 ### Test
 - **[Vitest](https://vitest.dev/)**: A Vite-native testing framework.
