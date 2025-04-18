@@ -133,6 +133,7 @@ Please take a look at the [example-site](https://github.com/dmaza81/sequra_front
 ## What we should improve
 
 - The deployment system is done manually. A proper CI/CD system hasn't been set up.
+- Beyond the tests we have performed, we must improve our error handling.
 - We're using [Signals](https://github.com/preactjs/signals) state as the source of truth, but we haven't set what we receive from the API and transform into this state with the Adapter. It might be a good idea to review and improve this aspect.
 - Although the application has good test coverage, I would like to do some E2E with [Playwright](https://playwright.dev/)
   
